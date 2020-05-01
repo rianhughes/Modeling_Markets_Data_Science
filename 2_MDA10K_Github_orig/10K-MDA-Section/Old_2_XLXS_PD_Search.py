@@ -35,9 +35,7 @@ def get_info_from_xlsx(SearchFile, SearchString, ID):
         dd=xlsx.parse(array[fd])[boolob.fillna(False)]
         # Get the values from the cleaned data
         for i in range(1, len(dd.columns)):
-            newv = int( str(dd[dd.columns[i]].values[0]) + '000') if 'thousands' in dd.columns[0].lower() else dd[dd.columns[i]].values[0]
-            return [ID, specific_sheet_name ,int(dd.columns[i][-4:]), dd[dd.columns[0]].values[0], newv, 'thousands' ]
-            #return [ID, specific_sheet_name ,int(dd.columns[i][-4:]), dd[dd.columns[0]].values[0], dd[dd.columns[i]].values[0], 'thousands' if 'thousands' in dd.columns[0].lower() else 'millions' ]
+            return [ID, specific_sheet_name ,int(dd.columns[i][-4:]), dd[dd.columns[0]].values[0], dd[dd.columns[i]].values[0], 'thousands' if 'thousands' in dd.columns[0].lower() else 'millions' ]
 
 
 # Print some data to terminal for testing
@@ -76,6 +74,7 @@ with open(csv_filename, 'w', newline='') as file:
         try:
             #print(get_info_from_xlsx(SearchFile,SearchString, ii))
             writer.writerow(get_info_from_xlsx(SearchFile,SearchString, ii))
+            #writer.writerow("\n")
         except:
             print("------------ get_info_from_xlsx failed ----- failed to write to csv file")
             pass
