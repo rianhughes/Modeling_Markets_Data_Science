@@ -15,10 +15,6 @@ def get_sheet_names(xlsx,STRING,array, specific_sheet_name):
 
 # Search SearchFile for ass instances where SearchString appears
 # Need to search for balance sheets only..
-ID = 4
-SearchFile= 'XLSX_Files/' + str(ID) + '_Financial_Report.xlsx'
-SearchString = 'total assets' # needs to be lower case
-specific_sheet_name = 'consolidated balance sheets'
 
 def get_info_from_xlsx(SearchFile, SearchString, ID):
     xlsx = pd.ExcelFile(SearchFile)
@@ -34,11 +30,13 @@ def get_info_from_xlsx(SearchFile, SearchString, ID):
             print([ID, specific_sheet_name ,int(dd.columns[i][-4:]), dd[dd.columns[0]].values[0], dd[dd.columns[i]].values[0], 'thousands' if 'thousands' in dd.columns[0].lower() else 'millions' ])
 
 
+# Main Algorithm
 for ii in range(1,8):
+    ID = ii
     SearchFile = 'XLSX_Files/' + str(ii) + '_Financial_Report.xlsx'
     SearchString = 'total assets'
-    print(['ID','specific_sheet_name', 'Year', 'SearchString Value'])
-    print([ii,ii,ii,ii,ii])
+    specific_sheet_name = 'consolidated balance sheets'
+    print(['ID','specific_sheet_name', 'Year', 'SearchString Value']) 
     print([SearchFile, SearchString, specific_sheet_name])
     try:
         get_info_from_xlsx(SearchFile,SearchString, ii)
