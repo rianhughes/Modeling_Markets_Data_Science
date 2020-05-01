@@ -7,7 +7,7 @@ import urllib
 # edgar/data/98246/0000098246-20-000058
 # Want the Financial_Report.xlsx
 
-filepath = "/home/rian/Desktop/1_Work/6_Jobs__Quant_RiskManagmemnt_DS/Modeling_the_Market/2_MDA10K_Github_orig/10K-MDA-Section/"
+filepath = "/home/rian/Desktop/1_Work/6_Jobs__Quant_RiskManagmemnt_DS/Modeling_Markets/2_MDA10K_Github_orig/10K-MDA-Section/"
 
 download_xlsx = os.path.join(filepath, "downloadlist_xlsx.txt")
 download = os.path.join(filepath, "downloadlist.txt")
