@@ -1,0 +1,9 @@
+----downloadindex.py
+
+This downloads all the files from SEC, and assign an ID 'Filer' to each document which is likelt to be a 10k MD&A.
+
+
+---- MDA Cleaner . . . py
+
+This saves the MD&A section into an output file,
+and tallies the number of positive and negative words

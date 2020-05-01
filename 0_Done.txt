@@ -1,0 +1,8 @@
+Calculate TONE across all different SEC filings.
+Web Scrape for the xlsx data files and name according to this GirHubs Repo ID
+
+Next: 
+Correlate Tone and Price
+
+
+
