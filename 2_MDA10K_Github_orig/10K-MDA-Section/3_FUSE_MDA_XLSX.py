@@ -33,8 +33,8 @@ with open(FILE_NEW,"a+") as newfile:
         tID=int(tRead[0])
         print("-----STARTING")
         print([xID, tID])
-        # It's unlikely that more than 5 consec urls had txt files but no xlsx files
-        for ii in range(0,5):
+        # It's unlikely that more than 100 consecutive urls had txt files but no xlsx files
+        for ii in range(0,200):
             if xID==tID:
                 # do stuff
                 writer.writerow(xRead + tRead)
