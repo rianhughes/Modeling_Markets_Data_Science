@@ -1,0 +1,5 @@
+ID,specific_sheet_name,Year,quantity-type,quantity-value,quantity-units,FILING,FILETYPE,CIK,COMNAM,datadate,filingdate,NEG,POS,TWORDS,TONE,ACQ,LINK
+3,consolidated balance sheets,2015,Total assets,598819000,thousands,3,10-K,3197,CECO ENVIRONMENTAL CORP,31DEC2015,23MAR2016,85,70,10683,-0.0014041,37,edgar/data/3197/0001564590-16-015157.txt
+5,consolidated balance sheets,2015,Total Assets,15028258000,thousands,5,10-K,764622,PINNACLE WEST CAPITAL CORP,31DEC2015,19FEB2016,84,73,10543,-0.001043346,6,edgar/data/764622/0000764622-16-000087.txt
+10,consolidated balance sheets,2015,Total assets,81421366,thousands,10,10-K,2098,ACME UNITED CORP,31DEC2015,11MAR2016,30,11,2960,-0.006418919,4,edgar/data/2098/0001026608-16-000091.txt
+16,consolidated balance sheets,2016,Total Assets,52154752,thousands,16,10-K,353184,AIR T INC,31MAR2016,29JUN2016,65,44,7701,-0.002726919,19,edgar/data/353184/0001437749-16-034573.txt

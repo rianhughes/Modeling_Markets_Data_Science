@@ -61,7 +61,7 @@ if 0:
 import csv
 import os
 
-csv_filename="0_XLSX_REAGG_DATA.csv"
+csv_filename="0_2__XLXS_PD_Search_and_Write_DATA.csv"
 ID_start=1
 ID_end=90000
 
@@ -77,8 +77,12 @@ with open(csv_filename, 'w', newline='') as file:
             #print(get_info_from_xlsx(SearchFile,SearchString, ii))
             writer.writerow(get_info_from_xlsx(SearchFile,SearchString, ii))
         except:
-            print("------------ get_info_from_xlsx failed ----- failed to write to csv file")
-            pass
+            try:
+                SearchFile = 'XLSX_Files_MDATone/' + str(ii) + '_Financial_Report.xls'
+                writer.writerow(get_info_from_xlsx(SearchFile,SearchString, ii))
+                print("------------ get_info_from_xlsx failed ----- failed to write to csv file")
+            except:
+                pass
 
 
 
