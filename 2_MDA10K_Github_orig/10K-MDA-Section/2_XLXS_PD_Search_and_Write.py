@@ -35,7 +35,7 @@ def get_info_from_xlsx(SearchFile, SearchString, ID):
         dd=xlsx.parse(array[fd])[boolob.fillna(False)]
         # Get the values from the cleaned data
         for i in range(1, len(dd.columns)):
-            newv = int( str(dd[dd.columns[i]].values[0]) + '000') if 'thousands' in dd.columns[0].lower() else dd[dd.columns[i]].values[0]
+            newv = int( str(dd[dd.columns[i]].values[0]) + '000') if 'thousands' in dd.columns[0].lower() else int(dd[dd.columns[i]].values[0])
             return [ID, specific_sheet_name ,int(dd.columns[i][-4:]), dd[dd.columns[0]].values[0], newv, 'thousands' ]
             #return [ID, specific_sheet_name ,int(dd.columns[i][-4:]), dd[dd.columns[0]].values[0], dd[dd.columns[i]].values[0], 'thousands' if 'thousands' in dd.columns[0].lower() else 'millions' ]
 
@@ -63,14 +63,14 @@ import os
 
 csv_filename="0_XLSX_REAGG_DATA.csv"
 ID_start=1
-ID_end=10
+ID_end=90000
 
 with open(csv_filename, 'w', newline='') as file:
     writer = csv.writer(file, delimiter=",")
     writer.writerow(['ID','specific_sheet_name', 'Year', 'quantity-type', 'quantity-value', 'quantity-units'])
     for ii in range(ID_start, ID_end):
         ID = ii
-        SearchFile = 'XLSX_Files/' + str(ii) + '_Financial_Report.xlsx'
+        SearchFile = 'XLSX_Files_MDATone/' + str(ii) + '_Financial_Report.xlsx'
         SearchString = 'total assets'
         specific_sheet_name = 'consolidated balance sheets'   
         try:

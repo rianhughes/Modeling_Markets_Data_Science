@@ -1,0 +1,16 @@
+MDA_Tone.csv contains the list of successfuly scraped and processed files (by the academics).
+
+Contains ID, POS, NEG, Tone, and the Link (and other info)
+
+I have created a script (1_dwnld.py) which loads in MDA_Tone.csv (without the first line) and creates aanother files which stores the links from MDA_Tone.csv
+I used the script to downloaded these files. 
+
+Unfortunately there are directories on the SEC website which had the text files of interet to the academics, but no xlsx files.
+So I had to create a script to match them.
+
+I then created another script (2_...py) which extracts the desired information from these xlsx files (Total Assests by default - since it's easy and clean), and stores in 0_XLSX_REAGG_DATA.csv.
+
+-
+
+I then need to combine the relevent info from MDA_Tone.csv and 0_XLSX_REAGG_DATA.csv so i can load into pythons pandas and do some magic.
+
