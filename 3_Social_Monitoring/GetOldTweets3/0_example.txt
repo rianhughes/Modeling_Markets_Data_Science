@@ -1,3 +1,16 @@
+
+Instructions:
+
+pip3 install GetOldTweets3
+
+replace /home/rian/.local/lib/python3.6/site-packages/GetOldTweets3/manager/TweetManager.py with TweetManager.py 
+
+run 1_Collect_num_tweets.sh (for year 2018)
+
+
+---
+
+
 Altered GetOldTweets3 so that if we hit a Too Many Request 429 error, then just wait an minute and continue, otherwise sys.exit()
 
 vim /home/rian/.local/lib/python3.6/site-packages/GetOldTweets3/manager/TweetManager.py
