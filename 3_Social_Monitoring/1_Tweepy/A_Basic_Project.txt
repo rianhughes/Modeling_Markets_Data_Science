@@ -2,10 +2,13 @@ Count the number of times BTC is mentioned, and check for correlations with btc 
 
 Also has the possibility for sentiment analysis, and working on signal-to-noise ratios by looking at a select sub-population of users.
 
+Save Stream to file via >, or append to existing file via >>
 
 ------------------------
 
 Methods for Searhes
 Methods for Trends
 Methods for Streaming
+
+Deploy on Server via Docker
 

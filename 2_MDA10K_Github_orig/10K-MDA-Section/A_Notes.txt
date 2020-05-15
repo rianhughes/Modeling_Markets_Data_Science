@@ -9,9 +9,15 @@ Unfortunately there are directories on the SEC website which had the text files 
 Actually, there were xlsx files, but not all of them found data for 'Total Assets' so i need to match the ones that did.
 So I had to create a script to match them.
 
-I then created another script (2_...py) which extracts the desired information from these xlsx files (Total Assests by default - since it's easy and clean), and stores in 0_XLSX_REAGG_DATA.csv.
+Script 1 downloads the xlsx and xls files from the set of links used to download the 10k documents used by the academics
+
+Script 2 extracts the desired information from these xlsx files (Total Assests by default - since it's easy and clean), and stores in 0_XLSX_REAGG_DATA.csv.
+
+Script 3 combines the xlsx and tone data that overlap
+
+Script 4 does some basic pandas stuff
 
 -
 
-I then need to combine the relevent info from MDA_Tone.csv and 0_XLSX_REAGG_DATA.csv so i can load into pythons pandas and do some magic.
+To look for change in momentum of the data by year
 

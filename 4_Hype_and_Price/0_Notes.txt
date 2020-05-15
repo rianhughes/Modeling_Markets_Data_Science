@@ -1,0 +1,16 @@
+
+Count the number of times an asset is mentioned on social media, news websites, etc and find the correlation between it and the change in the assets price.
+
+Example assets: BTC, other cryptos, gold, metals.
+
+I suspect that 'hype' assets like tulips and btc will show a stronger correlation. May need to incorporate senitment analysis.
+
+--
+
+Have access to twitter feeds if you search by user, or for all users upto 7 days ago.
+
+Not sure about FB.
+
+Reddit has an API as well. 
+
+
