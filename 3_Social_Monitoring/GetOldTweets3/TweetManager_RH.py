@@ -352,10 +352,11 @@ class TweetManager:
                 print(["---- RH: If 429 error then wait and continue ---- ", str(e)=="HTTP Error 429: Too Many Requests", "Attempt " + str(ii) + " of 5 "])
                 if str(e)=="HTTP Error 429: Too Many Requests":
                     print("---- Sleeping for 3mins, then try again..")
-                    sleep(180*ii)
+                    sleep(180)
                 else:
-                    print("---- RH: FAILED")
-                    sys.exit()
+                    print("---- RH: FAILED, just going to sleep for 3 mins")
+                    sleep(180)
+                    #sys.exit()
 
         try:
             s_json = jsonResponse.decode()
