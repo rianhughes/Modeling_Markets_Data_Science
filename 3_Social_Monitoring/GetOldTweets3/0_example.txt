@@ -23,4 +23,11 @@ output_got.csv
 
 GetOldTweets3 --since 2020-01-01 --until 2020-01-02 --querysearch "btc"  --maxtweets 10
  
+---
+
+Plot by date
+
+Get set of dates where price data and twitter data overlap
+
+
 

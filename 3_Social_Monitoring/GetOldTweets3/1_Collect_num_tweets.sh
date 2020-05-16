@@ -1,5 +1,5 @@
 query_string="bitcoin"
-for year        in 2017 2018;do     
+for year        in 2017 2018 ;do     
 for day 	in 1;do
 for month 	in 1 2 3 4 5 6 7 8 9 10 11 12 ;do
 	
