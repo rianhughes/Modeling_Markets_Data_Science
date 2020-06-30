@@ -1,5 +1,5 @@
 # Modeling_the_Markets
 
-Scraping financial documents and extracting relevent information to create a measure of valuation.
+Scraping financial documents (10ks) and extracting relevent information (valuaions, debt, etc.) to create a measure of valuation.
 
-Scraping Twitter and Reddit for information about particular topics and extracting features.
+Scraping Twitter and Reddit for information about particular topics (eg bitcoin) to find predictors (eg number of tweets, sentiment of text, etc).
