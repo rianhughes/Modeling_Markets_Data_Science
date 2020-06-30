@@ -1,8 +1,5 @@
 # Modeling_the_Markets
 
+Scraping financial documents and extracting relevent information to create a measure of valuation.
 
-Largely copied from
-
-https://github.com/rianhughes/MD-A-10-K-data
-and
-https://github.com/rflugum/10K-MDA-Section
+Scraping Twitter and Reddit for information about particular topics and extracting features.
