@@ -1,0 +1,69 @@
+https://askubuntu.com/questions/547289/how-can-i-from-cli-assign-multiple-ip-addresses-to-one-interface
+Set new IP addresses for your machine
+
+ sudo ip address add 172.16.100.17/24 dev eth0
+ ip address show et0
+ sudo ip address del 172.16.100.17/24 dev eth0
+
+ nmap localhost
+
+ ip address show 
+
+ ifconfig -s -a
+ ethtool eth0
+ lspci -v
+  ip address show eth0
+
+Proxies bascially add some nformation between the https and the website,
+http://<user>:<pass>@<proxy>:<port>/website
+http://66.110.216.221:39603/www.google.com
+
+https://medium.com/@krish.raghuram/setting-up-proxy-in-ubuntu-95058da0b2d4
+
+
+-- Proxy list 
+http://spys.one/en/free-proxy-list/
+
+
+
+------
+
+Using proxies to get around API limits,
+
+The free way:
+
+	So you can create your own proxies. But because of subnetmasking you might get banned (?)
+
+	So then you can scrape for proxies, check them and use them
+
+The paid way:
+	
+	Pay for that shit. Saves creating and checking them.
+	Requires paying and updating fresh ones (?)
+
+
+Note:  Proxy ranges are given by the first 3 numbers. If they are in the same range, switch them.
+
+------
+
+frenet discussion
+
+Can pay 10 bucks for 5 proxies 			- https://mexela.com/
+There are plenty of twitter scraping tools like - https://rootjazz.com/twitterdub/
+Be aware of subnetmasking and ip ranges which can led to bans.
+
+
+-----
+
+Creating new IP addresses on machines is pretty standard apparently 
+
+https://www.techrepublic.com/article/how-to-install-and-configure-squid-proxy-server-on-linux/
+
+https://askubuntu.com/questions/680246/proxy-server-multiple-ips
+
+/etc/squid/squid.conf
+
+
+Connection refused: The peer is not listening on the respective network port you're trying to connect to. This usually means that either a firewall is actively denying the connection or the respective service is not started on the other site or is overloaded.
+
+

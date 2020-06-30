@@ -1,0 +1,206 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "## note, should really filter out non-english tweets (assuming they are neutral here)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "from textblob import TextBlob\n",
+    "from wordcloud import WordCloud\n",
+    "import re\n",
+    "import matplotlib.pyplot as plt\n",
+    "import numpy"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "df=pd.read_csv('A_Tweet_Data/A_GetOldTweet_bitcoin-2017-6-1.csv')\n",
+    "df_tb = pd.DataFrame({'Tweets' : df['text']})"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Making sure those pesky 'Nans' don't show up.. They aren't strings!\n",
+    "a=[isinstance(i, str) for i in df_tb['Tweets']]\n",
+    "df_tb=df_tb[a]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Create a function to clean the tweets\n",
+    "def cleanTxt(text):\n",
+    " if type(text)!=str:\n",
+    "    print(type(text))\n",
+    " text = re.sub('@[A-Za-z0–9]+', '', text) #Removing @mentions\n",
+    " text = re.sub('#', '', text) # Removing '#' hash tag\n",
+    " text = re.sub('RT[\\s]+', '', text) # Removing RT\n",
+    " text = re.sub('https?:\\/\\/\\S+', '', text) # Removing hyperlink\n",
+    " text = re.sub('Bitcoin', '', text) # Removing hyperlink    \n",
+    " text = re.sub('bitcoin', '', text) # Removing hyperlink    \n",
+    " text = re.sub('BTC', '', text) # Removing hyperlink    \n",
+    " text = re.sub('blockchain', '', text) # Removing hyperlink    \n",
+    " return text\n",
+    "\n",
+    "# Clean the tweets\n",
+    "df_tb['Tweets']=df_tb['Tweets'].apply(cleanTxt)\n",
+    "# Show the cleaned tweets\n",
+    "#df_tb"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Create a function to get the subjectivity (fact=0, opinion=1)\n",
+    "def getSubjectivity(text):\n",
+    "   return TextBlob(text).sentiment.subjectivity\n",
+    "\n",
+    "# Create a function to get the polarity (neg = -1, pos = +1)\n",
+    "def getPolarity(text):\n",
+    "   return  TextBlob(text).sentiment.polarity\n",
+    "\n",
+    "\n",
+    "# Create two new columns 'Subjectivity' & 'Polarity'\n",
+    "df_tb['Subjectivity'] = df_tb['Tweets'].apply(getSubjectivity)\n",
+    "df_tb['Polarity'] = df_tb['Tweets'].apply(getPolarity)\n",
+    "\n",
+    "# Show the new dataframe with columns 'Subjectivity' & 'Polarity'\n",
+    "#df_tb"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Create a function to compute negative (-1), neutral (0) and positive (+1) analysis\n",
+    "def getAnalysis(score):\n",
+    "    if score < 0:\n",
+    "      return 'Negative'\n",
+    "    elif score == 0:\n",
+    "      return 'Neutral'\n",
+    "    else:\n",
+    "      return 'Positive'\n",
+    "\n",
+    "# Add 'Analysis' to the df\n",
+    "df_tb['Analysis'] = df_tb['Polarity'].apply(getAnalysis)# Show the dataframe\n",
+    "#Show df\n",
+    "#df_tb"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Get [Total, Num Pos, Num Neutral, Num Neg] of df_tb['Analysis']\n",
+    "# Create df with this data, along side price"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def senti_count(dff):\n",
+    "    neu=0\n",
+    "    pos=0\n",
+    "    neg=0\n",
+    "    #print(dff)\n",
+    "    for i in range(0,dff.shape[0]):\n",
+    "        #print({i,type(i)})\n",
+    "        #print(dff)\n",
+    "        if dff['Analysis'].iloc[i] == 'Neutral':\n",
+    "            neu+=1\n",
+    "        if dff['Analysis'].iloc[i] == 'Positive':\n",
+    "            pos+=1\n",
+    "        if dff['Analysis'].iloc[i] == 'Negative':\n",
+    "            neg+=1\n",
+    "    return [pos,neg,neu, pos+neg+neu]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[6594, 1619, 12496, 20709]"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "senti_count(df_tb)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.9"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

@@ -6,3 +6,13 @@ Correlate Tone and Price
 
 
 
+----
+
+NLP
+
+Remove stopwords (if, as ,the, etc)
+Remove punctuation.
+
+Do basic word-count according to some set of words / dictionary.
+
+

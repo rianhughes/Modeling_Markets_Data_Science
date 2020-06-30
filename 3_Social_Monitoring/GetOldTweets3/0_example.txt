@@ -17,17 +17,31 @@ vim /home/rian/.local/lib/python3.6/site-packages/GetOldTweets3/manager/TweetMan
 
 ---
 
-GetOldTweets3 -h
-
-output_got.csv
-
 GetOldTweets3 --since 2020-01-01 --until 2020-01-02 --querysearch "btc"  --maxtweets 10
  
 ---
 
-Plot by date
+Run spam nlp on text.
 
-Get set of dates where price data and twitter data overlap
+Run pos/neg nlp on text.
 
+use VADER (Valence Aware Dictionary and sEntiment Reasoner) to analyzethe sentiment of each twee
+
+--
+
+Look for crypto influencers and measure their impact / effectiveness.
+https://www.tweetbinder.com/blog/twitter-follower-tracker/
+
+NLP on tweets of the most followed BTC profiles. Rank by number of followers. Foloow their followers?
+
+PeterLBrandt, CZ Binance, Justin Sun, John McAfee, Charlie Lee, Jackson Palmer, Star Xu
+
+[Retweets, Likes, Replies]
+
+--
+
+Try and see if / how many users are bulls, bears or neutral.
+
+Another thing I thought would be interesting is to see the correlation between sentiment analysis of posts and the upvotes of posts
 
 
